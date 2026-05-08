@@ -1,7 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { Section } from "../components/Section";
 import {
-  images,
   siteTitle,
   speakingOutcomes,
   speakingTopics,
@@ -35,8 +34,13 @@ export function SpeakingPage() {
             </a>
           ) : null}
         </div>
-        <div className="feature-photo-card">
-          <img src={images.speaking} alt="Israel Philips presenting to an audience" />
+        <div className="feature-note-card">
+          <span className="section-eyebrow">What audiences get</span>
+          <h2>Clear thinking, practical examples, and zero AI hype.</h2>
+          <p>
+            I speak from direct building experience, with sessions designed to leave people
+            clearer about what to do next and what to ignore.
+          </p>
         </div>
       </section>
 
@@ -72,4 +76,3 @@ export function SpeakingPage() {
     </>
   );
 }
-

@@ -22,9 +22,8 @@ export function AboutPage() {
             business works.
           </p>
         </div>
-        <div className="about-photo-grid">
-          <img src={images.portrait} alt="Portrait of Israel Philips" />
-          <img src={images.editorial} alt="Israel Philips at an event backdrop" />
+        <div className="about-portrait-card">
+          <img src={images.headshot} alt="Portrait of Israel Philips" />
         </div>
       </section>
 
@@ -44,4 +43,3 @@ export function AboutPage() {
     </>
   );
 }
-

@@ -1,6 +1,4 @@
-import editorialImage from "../assets/images/israel-philips-editorial.jfif";
-import portraitImage from "../assets/images/israel-philips-portrait.jfif";
-import speakingImage from "../assets/images/israel-philips-speaking.jfif";
+import headshotImage from "../assets/images/headshot.jfif";
 import type { NavItem, ServiceOffer, SpeakingTopic, StatItem } from "./types";
 
 export const siteTitle = "Israel Philips";
@@ -112,11 +110,8 @@ export const audienceGroups = [
 ];
 
 export const images = {
-  portrait: portraitImage,
-  speaking: speakingImage,
-  editorial: editorialImage,
+  headshot: headshotImage,
 };
 
 export const expertSeoDescription =
   "Founder, speaker, AI specialist, and software engineer Israel Philips helps teams use AI practically and build stronger products.";
-

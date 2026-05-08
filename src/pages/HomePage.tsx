@@ -11,10 +11,11 @@ import {
   rotatingRoles,
   siteTitle,
 } from "../content/siteContent";
-import { getMailtoLink, links } from "../utils/env";
+import { getConsultationLink, getMailtoLink, links } from "../utils/env";
 
 export function HomePage() {
   const speakingMail = getMailtoLink("Speaking engagement");
+  const consultationLink = getConsultationLink();
 
   return (
     <>
@@ -32,8 +33,10 @@ export function HomePage() {
         >
           <span className="hero-kicker">Personal brand portfolio</span>
           <h1>
-            Israel Philips is a{" "}
-            <AnimatedRole roles={rotatingRoles} />
+            <span className="hero-intro-line">Israel Philips is a</span>
+            <span className="hero-role-line">
+              <AnimatedRole roles={rotatingRoles} />
+            </span>
           </h1>
           <p className="hero-description">
             I help businesses, teams, and audiences understand what useful AI looks like in
@@ -41,26 +44,25 @@ export function HomePage() {
             business clarity.
           </p>
           <div className="hero-actions">
-            {links.calendly ? (
-              <a className="button" href={links.calendly} target="_blank" rel="noreferrer">
-                Book a consultation
-              </a>
-            ) : null}
-            {speakingMail ? (
-              <a className="button button-secondary" href={speakingMail}>
-                Book me to speak
-              </a>
-            ) : null}
-            {links.linkedIn ? (
-              <a
-                className="text-link"
-                href={links.linkedIn}
-                target="_blank"
-                rel="noreferrer"
-              >
-                LinkedIn
-              </a>
-            ) : null}
+            <a
+              className="button"
+              href={consultationLink}
+              target={links.calendly ? "_blank" : undefined}
+              rel={links.calendly ? "noreferrer" : undefined}
+            >
+              Book a consultation
+            </a>
+            <a className="button button-secondary" href={speakingMail}>
+              Book me to speak
+            </a>
+            <a
+              className="button button-ghost"
+              href={links.linkedIn}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Connect on LinkedIn
+            </a>
           </div>
           <div className="hero-stat-grid">
             {homeStats.map((item) => (
@@ -78,9 +80,12 @@ export function HomePage() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.12 }}
         >
-          <div className="photo-stack">
-            <img className="photo-main" src={images.speaking} alt="Israel Philips speaking to an audience" />
-            <img className="photo-accent" src={images.editorial} alt="Israel Philips at an event" />
+          <div className="portrait-frame">
+            <img
+              className="photo-main"
+              src={images.headshot}
+              alt="Portrait of Israel Philips"
+            />
           </div>
           <div className="hero-badge-card">
             <span className="section-eyebrow">What I focus on</span>
@@ -143,4 +148,3 @@ export function HomePage() {
     </>
   );
 }
-

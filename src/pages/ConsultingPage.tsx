@@ -6,9 +6,11 @@ import {
   serviceOffers,
   siteTitle,
 } from "../content/siteContent";
-import { links } from "../utils/env";
+import { getConsultationLink, links } from "../utils/env";
 
 export function ConsultingPage() {
+  const consultationLink = getConsultationLink();
+
   return (
     <>
       <Helmet>
@@ -28,21 +30,22 @@ export function ConsultingPage() {
             build next, this is designed to help you cut through noise quickly.
           </p>
           <div className="hero-actions">
-            {links.calendly ? (
-              <a className="button" href={links.calendly} target="_blank" rel="noreferrer">
-                Book a consultation
-              </a>
-            ) : null}
-            {links.linkedIn ? (
-              <a
-                className="button button-secondary"
-                href={links.linkedIn}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Connect on LinkedIn
-              </a>
-            ) : null}
+            <a
+              className="button"
+              href={consultationLink}
+              target={links.calendly ? "_blank" : undefined}
+              rel={links.calendly ? "noreferrer" : undefined}
+            >
+              Book a consultation
+            </a>
+            <a
+              className="button button-secondary"
+              href={links.linkedIn}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Connect on LinkedIn
+            </a>
           </div>
         </div>
         <div className="consulting-side-panel">
@@ -92,4 +95,3 @@ export function ConsultingPage() {
     </>
   );
 }
-
